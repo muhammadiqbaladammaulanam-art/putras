@@ -1,0 +1,252 @@
+/* ==========================================
+   CSS STYLING LOGIN & TITLE SCREEN - putras-MA
+   ========================================== */
+
+/* Variabel Global untuk mempermudah penggantian Latar Belakang dan Warna */
+:root {
+    --primary-color: #ffd700; /* Warna Emas Star */
+    --premium-color: #00bfff; /* Warna Biru Sky */
+    --text-light: #ffffff;
+    --bg-dark-transparant: rgba(0, 0, 0, 0.75);
+    /* Gantilah URL di bawah ini dengan gambar 2D Anda di folder asset */
+    --bg-game-image: url('../asset/background-title.jpg'); 
+}
+
+/* Reset Dasar Browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+/* Base Body dengan Latar Belakang Gambar Penuh */
+body {
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-game-image) no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container Utama Terpusat (Flexbox super responsif) */
+.screen-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+/* Helper Class untuk menyembunyikan elemen */
+.hide-element {
+    display: none !important;
+}
+
+/* Styling Kotak Formulir (Kondisi A) */
+.card-box {
+    background: var(--bg-dark-transparant);
+    padding: 2.5rem;
+    border-radius: 15px;
+    border: 2px solid var(--primary-color);
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: var(--text-light);
+}
+
+.card-box h2 {
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    font-size: 1.6rem;
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background: #222;
+    color: var(--text-light);
+    font-size: 1rem;
+    outline: none;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: var(--primary-color);
+}
+
+/* Custom Upload Button */
+.custom-file-upload {
+    display: block;
+    text-align: center;
+    background: #333;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px dashed var(--primary-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+#wrapper-preview-input {
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: center;
+}
+
+#preview-foto-daftar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 0.9rem;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+/* ========================================== */
+/* STYLING KONDISI B: TITLE SCREEN (BERSIH & LINGKARAN) */
+/* ========================================== */
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem; /* Jarak renggang vertikal yang pas */
+}
+
+/* Proteksi Mutlak Foto Profil Berbentuk Lingkaran */
+.avatar-lingkaran-wrapper {
+    width: 160px; /* Ukuran dinamis dan pas di layar */
+    height: 160px;
+    border-radius: 50%; /* Membuat lingkaran sempurna */
+    border: 4px solid var(--primary-color);
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+    background: #000;
+}
+
+.avatar-lingkaran-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mencegah gambar menjadi gepeng atau rusak */
+}
+
+/* Tombol Start Game */
+.btn-start {
+    padding: 1.2rem 4rem;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #000;
+    background: var(--primary-color);
+    border: 3px solid #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 3px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+}
+
+.btn-start:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--primary-color);
+}
+
+.btn-start:active {
+    transform: scale(0.95);
+}
+
+/* ========================================== */
+/* STYLING LOADING SCREEN (60 FPS HARDWARE ACCELERATED) */
+/* ========================================== */
+.loading-container {
+    text-align: center;
+    color: var(--text-light);
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.loading-text {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
+    color: var(--premium-color);
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.progress-bar-container {
+    width: 80%;
+    max-width: 500px;
+    height: 14px;
+    background: #222;
+    border-radius: 20px;
+    border: 1px solid #444;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--premium-color), #00ffff);
+    border-radius: 20px;
+    /* Transform-translate dijalankan pada GPU untuk menjamin anti patah-patah */
+    will-change: width; 
+    transition: width 0.05s linear;
+}
+
+.loading-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+/* Responsive Media Queries untuk HP Layar Kecil */
+@media (max-width: 480px) {
+    .card-box { padding: 1.5rem; }
+    .avatar-lingkaran-wrapper { width: 130px; height: 130px; }
+    .btn-start { font-size: 1.4rem; padding: 1rem 3rem; }
+    .loading-text { font-size: 1.1rem; }
+}

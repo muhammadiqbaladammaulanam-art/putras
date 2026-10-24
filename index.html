@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title Screen - putras-MA</title>
+    <!-- Menghubungkan ke file CSS di folder tampilan -->
+    <link rel="stylesheet" href="putras-MA/tampilan/login.css">
+</head>
+<body>
+
+    <!-- Container Utama: Menampung seluruh elemen agar selalu di tengah -->
+    <div class="screen-container">
+
+        <!-- ========================================== -->
+        <!-- KONDISI A: FORMULIR PENDAFTARAN (PEMAIN BARU) -->
+        <!-- ========================================== -->
+        <div id="form-daftar-section" class="card-box hide-element">
+            <h2>BUAT PROFIL BARU</h2>
+            <form id="form-login-utama" onsubmit="prosesPendaftaran(event)">
+                
+                <div class="input-group">
+                    <label for="input-nama">Nama Pemain</label>
+                    <input type="text" id="input-nama" required placeholder="Masukkan nama...">
+                </div>
+
+                <div class="input-group">
+                    <label for="input-umur">Umur</label>
+                    <input type="number" id="input-umur" min="1" max="99" required placeholder="Umur...">
+                </div>
+
+                <div class="input-group">
+                    <label for="select-gender">Gender</label>
+                    <select id="select-gender" required>
+                        <option value="" disabled selected>Pilih Gender</option>
+                        <option value="Pria">Pria</option>
+                        <option value="Wanita">Wanita</option>
+                        <option value="Tidak Memilih">Tidak Memilih</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="input-foto">Foto Profil</label>
+                    <!-- Input file disembunyikan, diganti tombol custom agar rapi -->
+                    <label class="custom-file-upload">
+                        <input type="file" id="input-foto" accept="image/*" onchange="previewDanKonversiFoto(event)" required>
+                        Pilih Gambar
+                    </label>
+                    <div id="wrapper-preview-input" class="hide-element">
+                        <img id="preview-foto-daftar" src="" alt="Preview">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">SIMPAN PROFIL</button>
+            </form>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- KONDISI B: TITLE SCREEN / START (PEMAIN LAMA) -->
+        <!-- ========================================== -->
+        <div id="title-screen-section" class="title-container hide-element">
+            <!-- Hanya menampilkan Foto Profil berbentuk Lingkaran tanpa teks apa pun -->
+            <div class="avatar-lingkaran-wrapper">
+                <img id="foto-profil-lingkaran" src="" alt="Profil Pemain">
+            </div>
+            
+            <!-- Tombol Start Game tepat di bawah foto -->
+            <button id="btn-start-game" class="btn-start" onclick="mulaiLoadingGame()">START GAME</button>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- HALAMAN LOADING SCREEN (DIPICU SAAT KLIK START) -->
+        <!-- ========================================== -->
+        <div id="loading-screen-section" class="loading-container hide-element">
+            <h1 class="loading-text">MEMERIKSA DATA DATA GAME...</h1>
+            <div class="progress-bar-container">
+                <div id="progress-bar-fill" class="progress-fill"></div>
+            </div>
+            <div id="loading-percentage" class="loading-number">0%</div>
+        </div>
+
+    </div>
+
+    <!-- Menghubungkan script logika -->
+    <script src="putras-MA/system/save.js"></script>
+    <script src="putras-MA/system/login.js"></script>
+</body>
+</html>
