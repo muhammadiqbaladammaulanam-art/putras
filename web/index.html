@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Jurnal Absensi</title>
+    <!-- Menghubungkan ke style.css di dalam folder tampilan -->
+    <link rel="stylesheet" href="tampilan/style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login Jurnal Absensi</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Masukkan username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Masukkan password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p id="pesanError" style="color: #ff4d4d; margin-top: 10px; font-size: 14px;"></p>
+    </div>
+
+    <!-- Menghubungkan ke login.js di dalam folder system -->
+    <script src="web/system/login.js"></script>
+</body>
+</html>

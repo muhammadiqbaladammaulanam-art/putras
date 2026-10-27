@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lihat Absensi - Jurnal Absensi</title>
+    <!-- Menghubungkan ke style3.css khusus halaman rekap -->
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+    <div class="app-container no-print">
+        <!-- Dashboard Kiri -->
+        <aside class="sidebar">
+            <h3>Dashboard</h3>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="absen-masuk.html">Absen Masuk</a></li>
+                <li><a href="lihat-absensi.html" class="active">Lihat Absensi</a></li>
+            </ul>
+        </aside>
+
+        <!-- Konten Utama Rekap Riwayat -->
+        <main class="main-content">
+            <header>
+                <h2>Daftar Rekap Jurnal Absensi</h2>
+                <p>Menampilkan seluruh riwayat absensi dari yang terbaru hingga terlama.</p>
+            </header>
+
+            <!-- Tempat Menampilkan Kartu / Baris Jurnal Rekap -->
+            <section id="kontenRekapAbsensi" class="rekap-section">
+                <!-- Data jurnal dari teranyar sampai terlama akan diisi oleh JS di sini -->
+            </section>
+        </main>
+    </div>
+
+    <!-- AREA POP-UP DETAIL DATA (Awalnya Tersembunyi, Muncul Saat Tombol Detail Diklik) -->
+    <div id="modalDetail" class="modal">
+        <div class="modal-content">
+            <div class="modal-header no-print">
+                <h3 id="modalJudul">Detail Jurnal Absensi</h3>
+                <span class="close-btn" onclick="tutupModal()">&times;</span>
+            </div>
+            
+            <!-- Area Cetak PDF: Isi Data yang Akan Didownload -->
+            <div id="areaCetakPDF" class="printable-area">
+                <div class="kop-surat">
+                    <h2>LAPORAN JURNAL ABSENSI SISWA</h2>
+                    <p id="pdfWaktuJurnal">Hari, Tanggal Bulan Tahun</p>
+                    <hr>
+                </div>
+                
+                <table class="tabel-detail-siswa">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">No Absen</th>
+                            <th style="width: 50%;">Nama Siswa</th>
+                            <th style="width: 30%;">Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelSiswaDetail">
+                        <!-- List siswa permanen yang tidak bisa diedit muncul di sini -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tombol Aksi di Bawah Pop-up -->
+            <div class="modal-footer no-print">
+                <button type="button" class="btn-pdf" onclick="unduhPDF()">Cetak / Jadikan PDF</button>
+                <button type="button" class="btn-tutup" onclick="tutupModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menghubungkan ke JS khusus lihat-absensi di folder system -->
+    <script src="../system/lihat-absensi.js"></script>
+</body>
+</html>
