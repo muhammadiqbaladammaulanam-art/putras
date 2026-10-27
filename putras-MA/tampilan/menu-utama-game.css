@@ -1,0 +1,251 @@
+/* ==========================================
+   CSS STYLING LOBI / MENU UTAMA - putras-MA
+   ========================================== */
+
+:root {
+    --tech-blue: #00bfff;       /* Biru Muda Teknologi */
+    --blood-red: #8b0000;       /* Merah Darah */
+    --silver-light: #e0e0e0;    /* Silver Terang */
+    --silver-dark: #7a7a7a;     /* Silver Gelap */
+    --text-pure-white: #ffffff;
+    --dark-overlay: rgba(10, 10, 15, 0.85);
+    /* === TARUH LINK GAMBAR 2D LATAR BELAKANG MENU UTAMA DI SINI === */
+    --bg-lobi-image: url('../asset/background-main-menu.jpg'); 
+}
+
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+/* Base Body Fullscreen */
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #050508;
+}
+
+/* Container Utama Super Responsif Mengikuti Rasio Layar */
+.lobby-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: var(--bg-lobi-image) no-repeat center center;
+    background-size: cover;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ========================================== */
+/* STYLING POJOK KIRI ATAS: PROFIL UTAMA      */
+/* ========================================== */
+.header-profil-kiri {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1.2rem 0.5rem 0.5rem;
+    border-radius: 50px;
+    border-left: 3px solid var(--tech-blue);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    z-index: 10;
+}
+
+.header-profil-kiri:hover {
+    background: rgba(0, 191, 255, 0.15);
+}
+
+.header-profil-kiri:active {
+    transform: scale(0.98);
+}
+
+.avatar-lingkaran-lobi {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--tech-blue);
+    overflow: hidden;
+    background: #000;
+}
+
+.avatar-lingkaran-lobi img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nama-pemain-lobi {
+    color: var(--text-pure-white);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* ========================================== */
+/* STYLING POJOK KANAN ATAS: AREA DOMPET      */
+/* ========================================== */
+.header-dompet-kanan {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: row; 
+    z-index: 10;
+}
+
+.slot-mata-uang {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #333;
+    gap: 0.6rem;
+    min-width: 100px;
+    justify-content: flex-end;
+}
+
+.ikon-mata-uang {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.placeholder-icon-star { color: var(--tech-blue); }
+.placeholder-icon-sky { color: #ffd700; }
+
+.ikon-mata-uang img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.jumlah-angka-uang {
+    color: var(--text-pure-white);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* ========================================== */
+/* STYLING SICI KIRI BAWAH: GAMBAR KARAKTER 2D*/
+/* ========================================== */
+.wrapper-karakter-2d {
+    position: absolute;
+    left: 4rem;
+    bottom: 0;
+    width: 35vw;
+    height: 75vh;
+    display: flex;
+    align-items: flex-end;
+    pointer-events: none; 
+    z-index: 2;
+}
+
+.wrapper-karakter-2d img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.placeholder-gambar-karakter-2d {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+/* ========================================== */
+/* STYLING POJOK KANAN BAWAH: BARISAN TOMBOL  */
+/* ========================================== */
+.footer-navigasi-kanan {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 0.6rem; 
+    align-items: center;
+    z-index: 5;
+}
+
+/* Base Desain Fitur Tombol */
+.btn-fitur {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+    outline: none;
+    text-transform: uppercase;
+}
+
+/* Desain Khusus Tombol Cerita (Biru Muda Teknologi, Paling Kanan) */
+.btn-fitur.btn-cerita-biru {
+    background: rgba(0, 191, 255, 0.2);
+    color: var(--tech-blue);
+    border: 2px solid var(--tech-blue);
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+    padding: 1rem 2.5rem; 
+    font-size: 1.1rem;
+}
+
+.btn-fitur.btn-cerita-biru:hover {
+    background: var(--tech-blue);
+    color: #000;
+    box-shadow: 0 0 25px var(--tech-blue);
+    transform: translateY(-3px);
+}
+
+/* Desain Khusus Tombol Lainnya (Silver, Putih, Aksen Hitam/Merah Darah) */
+.btn-fitur.btn-silver {
+    background: rgba(224, 224, 224, 0.1);
+    color: var(--silver-light);
+    border: 1px solid var(--silver-dark);
+}
+
+.btn-fitur.btn-silver:hover {
+    background: var(--text-pure-white);
+    color: #000;
+    border-color: var(--text-pure-white);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    border-bottom: 3px solid var(--blood-red); 
+    transform: translateY(-2px);
+}
+
+.btn-fitur:active {
+    transform: translateY(1px) scale(0.97);
+}
+
+/* Responsive Media Queries Untuk HP (Maksimal Fleksibilitas) */
+@media (max-width: 768px) {
+    .header-profil-kiri { top: 1rem; left: 1rem; }
+    .header-dompet-kanan { top: 1rem; right: 1rem; gap: 0.5rem; }
+    .slot-mata-uang { padding: 0.3rem 0.6rem; min-width: 80px; }
+    .wrapper-karakter-2d { left: 1rem; width: 45vw; }
+    .footer-navigasi-kanan { 
+        bottom: 1rem; 
+        right: 1rem; 
+        gap: 0.4rem;
+        max-width: 90vw;
+        justify-content: flex-end;
+        flex-wrap: wrap; 
+    }
+    .btn-fitur { padding: 0.6rem 1rem; font-size: 0.85rem; }
+    .btn-fitur.btn-cerita-biru { padding: 0.7rem 1.5rem; font-size: 0.9rem; }
+}

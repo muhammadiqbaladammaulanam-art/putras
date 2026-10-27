@@ -122,7 +122,7 @@ function inisialisasiPemainBaru(namaInput, umurInput, genderInput, fotoBase64Inp
     dataGame.karakterUtama.level = 1;
 
     // Set modal awal mata uang secara default (Bisa Anda ubah nilainya nanti jika mau)
-    dataGame.dompet.star = 100; 
+    dataGame.dompet.star = 0; 
     dataGame.dompet.sky = 0;
 
     // Masukkan Karakter Utama ke daftar karakter yang dimiliki untuk awalan

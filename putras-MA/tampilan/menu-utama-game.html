@@ -3,138 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schale Command Center</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        :root { --blue: #00a3ff; --dark: #2c3e50; --glass: rgba(255, 255, 255, 0.85); }
-        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; font-family: 'Jost', sans-serif; }
-        body, html { width: 100%; height: 100%; overflow: hidden; background: linear-gradient(135deg, #eef7ff, #bce3ff); }
-        
-        /* Grid Effect & Halo */
-        body::before { content: ''; position: absolute; width: 100%; height: 100%; background: linear-gradient(rgba(0,163,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,163,255,0.04) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
-        .halo { position: absolute; top: 15%; left: 45%; transform: translateX(-50%); width: 180px; height: 180px; border: 2px dashed rgba(0,163,255,0.3); border-radius: 50%; animation: spin 20s linear infinite; }
-        @keyframes spin { 100% { transform: translateX(-50%) rotate(360deg); } }
-
-        /* UI Elements */
-        .top-nav, .bottom-nav { position: absolute; left: 0; width: 100%; display: flex; justify-content: space-between; padding: 25px 40px; z-index: 10; }
-        .top-nav { top: 0; align-items: center; }
-        .bottom-nav { bottom: 0; align-items: flex-end; }
-        
-        .p-info { background: var(--glass); padding: 8px 20px; border-radius: 0 12px 0 12px; border-left: 5px solid var(--blue); font-weight: 600; color: var(--dark); }
-        .cur-box { display: flex; gap: 10px; }
-        .currency { background: var(--glass); padding: 6px 15px; border-radius: 20px; font-weight: 600; color: var(--dark); border: 1px solid rgba(0,163,255,0.1); }
-
-        /* Character & Dialog */
-        .char-layer { position: absolute; bottom: -5%; left: 45%; transform: translateX(-50%); height: 95%; z-index: 2; transition: transform 0.1s ease-out; pointer-events: none; }
-        .char-layer img { height: 100%; filter: drop-shadow(0 10px 20px rgba(0,80,130,0.15)); }
-        
-        .dialog-box { position: absolute; left: 50px; top: 35%; z-index: 5; width: 320px; background: var(--glass); border-radius: 4px 20px 20px 20px; padding: 20px; border-left: 6px solid var(--blue); cursor: pointer; transition: transform 0.2s; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .dialog-box:hover { transform: translateY(-2px); }
-        .char-name { font-weight: 700; color: var(--blue); font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
-
-        /* Navigation Buttons */
-        .right-menu { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: 12px; }
-        .menu-btn { width: 180px; height: 50px; background: var(--glass); border: none; border-right: 5px solid var(--blue); border-radius: 10px 0 10px 0; display: flex; align-items: center; padding-left: 20px; font-size: 15px; font-weight: 600; color: var(--dark); cursor: pointer; transition: all 0.2s; }
-        .menu-btn:hover { transform: translateX(-8px); background: white; color: var(--blue); border-right-color: #ffde00; }
-        
-        .circle-btn { width: 45px; height: 45px; border-radius: 50%; background: var(--glass); border: 1px solid rgba(0,163,255,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s; }
-        .circle-btn:hover { transform: scale(1.1); background: var(--blue); color: white; }
-        
-        .go-btn { width: 220px; height: 65px; background: linear-gradient(135deg, #00b6ff, #0072ff); color: white; border: none; border-radius: 0 20px 0 20px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 15px rgba(0,114,255,0.3); border-bottom: 4px solid #0050b3; transition: all 0.2s; }
-        .go-btn:hover { transform: translateY(-2px); background: linear-gradient(135deg, #00c6ff, #0082ff); }
-
-        /* Notification */
-        .toast { position: absolute; top: -60px; left: 50%; transform: translateX(-50%); background: rgba(44,62,80,0.95); color: white; padding: 10px 25px; border-radius: 20px; z-index: 100; transition: top 0.3s ease; font-weight: 600; border-bottom: 3px solid var(--blue); }
-        .toast.show { top: 20px; }
-    </style>
+    <title>Menu Utama - putras-MA</title>
+    <link rel="stylesheet" href="menu-utama-game.css">
 </head>
 <body>
 
-    <div id="toast" class="toast">Menu Diakses!</div>
-    <div class="halo"></div>
+    <!-- Container Utama Lobi -->
+    <div class="lobby-container">
 
-    <div class="top-nav">
-        <div class="p-info">Lv.75 Sensei</div>
-        <div class="cur-box">
-            <div class="currency">⚡ 120/120</div>
-            <div class="currency">🪙 4.25M</div>
-            <div class="currency">💎 12,400</div>
+        <!-- ========================================== -->
+        <!-- POJOK KIRI ATAS: AREA PROFIL PEMAIN        -->
+        <!-- ========================================== -->
+        <div class="header-profil-kiri" onclick="pindahKeHalaman('profil.html')" title="Klik untuk lihat Profil Lengkap">
+            <div class="avatar-lingkaran-lobi">
+                <img id="display-foto-lobi" src="" alt="Foto Profil">
+            </div>
+            <div class="nama-pemain-lobi" id="display-nama-lobi">Memuat...</div>
         </div>
-    </div>
 
-    <div class="char-layer" id="char">
-        <img src="https://squarespace-cdn.com" alt="Arona">
-    </div>
+        <!-- ========================================== -->
+        <!-- POJOK KANAN ATAS: AREA DOMPET / MATA UANG  -->
+        <!-- ========================================== -->
+        <div class="header-dompet-kanan">
+            <!-- Slot Mata Uang Star (Reguler) -->
+            <div class="slot-mata-uang">
+                <div class="ikon-mata-uang">
+                    <!-- === TARUH IKON GAMBAR MATA UANG STAR ANDA DI SINI === -->
+                    <span class="placeholder-icon-star">★</span>
+                </div>
+                <div class="jumlah-angka-uang" id="display-star-lobi">0</div>
+            </div>
 
-    <div class="dialog-box" onclick="changeBox()">
-        <div class="char-name">Arona</div>
-        <div id="txt" style="color: var(--dark); font-size: 14px;">Selamat datang kembali, Sensei! Jadwal kita sudah siap! ✨</div>
-    </div>
-
-    <div class="right-menu">
-        <button class="menu-btn" onclick="act('Students')">👥 Students</button>
-        <button class="menu-btn" onclick="act('Club')">🏫 Club</button>
-        <button class="menu-btn" onclick="act('Crafting')">🧪 Crafting</button>
-        <button class="menu-btn" onclick="act('Recruit')">🎫 Recruit</button>
-        <button class="menu-btn" onclick="act('Shop')">🛒 Shop</button>
-    </div>
-
-    <div class="bottom-nav">
-        <div style="display: flex; gap: 10px;">
-            <button class="circle-btn" onclick="act('Settings')">⚙️</button>
-            <button class="circle-btn" onclick="act('Mail')">✉️</button>
-            <button class="circle-btn" onclick="toggleMute()">🎵</button>
+            <!-- Slot Mata Uang Sky (Premium) -->
+            <div class="slot-mata-uang">
+                <div class="ikon-mata-uang">
+                    <!-- === TARUH IKON GAMBAR MATA UANG SKY ANDA DI SINI === -->
+                    <span class="placeholder-icon-sky">✦</span>
+                </div>
+                <div class="jumlah-angka-uang" id="display-sky-lobi">0</div>
+            </div>
         </div>
-        <button class="go-btn" onclick="act('Mission')">ENTER MISSION</button>
+
+        <!-- ========================================== -->
+        <!-- SISI KIRI TENGAH KE BAWAH: GAMBAR KARAKTER -->
+        <!-- ========================================== -->
+        <div class="wrapper-karakter-2d">
+            <!-- === TARUH FILE GAMBAR 2D KARAKTER UTAMA ANDA DI SINI === -->
+            <div class="placeholder-gambar-karakter-2d"></div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- POJOK KANAN BAWAH: BARISAN TOMBOL RAPAT    -->
+        <!-- ========================================== -->
+        <div class="footer-navigasi-kanan">
+            <button class="btn-fitur btn-silver" onclick="pindahKeHalaman('inventory.html')">INVENTORY</button>
+            <button class="btn-fitur btn-silver" onclick="pindahKeHalaman('formasi.html')">FORMASI</button>
+            <button class="btn-fitur btn-silver" onclick="pindahKeHalaman('gacha.html')">GACHA</button>
+            <button class="btn-fitur btn-silver" onclick="pindahKeHalaman('toko.html')">TOKO</button>
+            <button class="btn-fitur btn-cerita-biru" onclick="pindahKeHalaman('cerita-utama.html')">CERITA</button>
+        </div>
+
     </div>
 
-    <script>
-        const lists = [
-            "Selamat datang kembali, Sensei! Jadwal kita sudah siap! ✨",
-            "Sensei, jangan lupa ambil hadiah di kotak surat ya!",
-            "Pekerjaan menumpuk? Arona akan selalu mendampingi Sensei!",
-            "Sensei... Arona agak mengantuk... Tapi aku akan bertahan! 💤"
-        ];
-        let idx = 0, muted = false;
-
-        function changeBox() {
-            sound(1200);
-            idx = (idx + 1) % lists.length;
-            document.getElementById('txt').innerText = lists[idx];
-        }
-
-        function act(name) {
-            sound(800);
-            const t = document.getElementById('toast');
-            t.innerText = `Membuka Menu: ${name}`;
-            t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 2000);
-        }
-
-        function sound(f) {
-            if (muted) return;
-            try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = ctx.createOscillator(), gain = ctx.createGain();
-                osc.frequency.setValueAtTime(f, ctx.currentTime);
-                gain.gain.setValueAtTime(0.04, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.00001, ctx.currentTime + 0.1);
-                osc.connect(gain); gain.connect(ctx.destination);
-                osc.start(); osc.stop(ctx.currentTime + 0.1);
-            } catch(e) {}
-        }
-
-        function toggleMute() {
-            muted = !muted;
-            act(muted ? "MUTE" : "UNMUTE");
-        }
-
-        // Efek Paralaks Mouse
-        window.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth / 2 - e.pageX) / 50;
-            const y = (window.innerHeight / 2 - e.pageY) / 70;
-            document.getElementById('char').style.transform = `translateX(calc(-50% + ${x}px)) translateY(${y}px)`;
-        });
-    </script>
+    <!-- Menghubungkan ke script save global dan script lobi -->
+    <script src="../system/save.js"></script>
+    <script src="../system/menu-utama-game.js"></script>
 </body>
 </html>
