@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karakter Dimiliki - putras-MA</title>
+    <link rel="stylesheet" href="karakter-dimiliki.css">
+</head>
+<body>
+
+    <!-- PANEL UTAMA: GALERI DAFTAR KARAKTER DIMILIKI -->
+    <div class="main-dimiliki-container" id="panel-utama-daftar">
+
+        <!-- SIDEBAR KIRI: NAVIGASI UTAMA -->
+        <div class="sidebar-kiri">
+            <button class="btn-kembali-lobi" onclick="pindahHalamanDimiliki('../menu-utama-game.html')">
+                ⬅ KEMBALI KE LOBI
+            </button>
+
+            <div class="wrapper-menu-status">
+                <button class="btn-status-nav" onclick="filterKategoriDimiliki('SPESIAL')">SPESIAL</button>
+                <button class="btn-status-nav" onclick="filterKategoriDimiliki('RAIU')">RAIU</button>
+                <button class="btn-status-nav" onclick="filterKategoriDimiliki('STARS')">STARS</button>
+                <button class="btn-status-nav" onclick="filterKategoriDimiliki('SKY')">SKY</button>
+            </div>
+            
+            <div class="spacer-bawah-sidebar"></div>
+        </div>
+
+        <!-- AREA KANAN: TEMPAT KARTU GAMBAR DIMILIKI -->
+        <div class="area-galeri-kanan" id="area-galeri-aktif">
+            <!-- Disuntik otomatis oleh JavaScript -->
+        </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PANEL DETAIL BARU: VISUALISASI FULL SCREEN -->
+    <!-- ========================================== -->
+    <div id="panel-layar-detail-baru" class="layar-detail-full hide-layar-detail">
+        
+        <!-- SISI KIRI: KARAKTER BERDIRI MENGINJAK LANTAI -->
+        <div class="detail-sisi-kiri">
+            <div class="wrapper-karakter-berdiri" id="wadah-visual-berdiri">
+                <!-- Gambar karakter berdiri disuntik di sini -->
+            </div>
+            <div class="efek-lantai-pijakan"></div>
+        </div>
+
+        <!-- SISI KANAN: BARISAN DATA LEVEL, STAT, SKILL & LORE -->
+        <div class="detail-sisi-kanan">
+            <div class="box-konten-stat">
+                <h1 id="detail-txt-nama">NAMA KARAKTER</h1>
+                <hr class="garis-pembatas">
+                
+                <!-- TEMPAT MEMAJANG DATA LEVEL, BAR LEVEL, DAN STATS -->
+                <div class="list-angka-stat">
+                    <p>STATUS KATEGORI: <span id="detail-txt-status" class="highlight-blue">-</span></p>
+                    
+                    <!-- KOTAK BAR LEVEL RPG (YANG TADI HILANG) -->
+                    <div class="container-level-bar-rpg">
+                        <p>LEVEL SEKARANG: <span id="detail-txt-level" class="highlight-data">1</span></p>
+                        <div class="progress-bar-level-bg">
+                            <div id="level-bar-fill-dinamis" class="progress-bar-level-fill"></div>
+                        </div>
+                    </div>
+
+                    <p>TOTAL HP: <span id="detail-txt-hp" class="highlight-data">0</span></p>
+                    <p>TOTAL ATTACK: <span id="detail-txt-attack" class="highlight-data">0</span></p>
+                    <p>TOTAL DEFENSE: <span id="detail-txt-def" class="highlight-data">0</span></p>
+                </div>
+                
+                <!-- WADAH VISUAL SKILL (IKON + TEKS DARI skill.js) -->
+                <div class="wrapper-skill-aktif">
+                    <h3>SKILL KARAKTER</h3>
+                    <div id="list-box-skill-dinamis" class="grid-skill-box">
+                        <!-- Kotak ikon, nama, dan penjelasan masuk di sini -->
+                    </div>
+                </div>
+
+                <!-- WADAH DETAIL LATAR BELAKANG (DARI karakter-profil.js) -->
+                <div class="wrapper-lore-lokal" id="detail-box-lore-lokal">
+                    <!-- Judul dan naskah cerita novel masuk di sini -->
+                </div>
+            </div>
+
+            <button class="btn-tutup-detail" onclick="tutupLayarDetailKarakter()">KEMBALI KE DAFTAR</button>
+        </div>
+
+    </div>
+
+    <!-- Script Utama Game -->
+    <script src="../../system/save.js"></script>
+    <script src="../../system/karakter-profil.js"></script>
+    <script src="karakter-dimiliki.js"></script>
+</body>
+</html>

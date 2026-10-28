@@ -1,0 +1,400 @@
+/* ===================================================
+   CSS STYLING KARAKTER DIMILIKI - putras-MA
+   =================================================== */
+
+/* Variabel Tema Warna Konsisten Kembar */
+:root {
+    --bg-putih-murni: #ffffff;
+    --biru-muda-tech: #00bfff;
+    --merah-darah: #8b0000;
+    --hitam-solid: #000000;
+    --abu-gelap: #222222;
+    --overlay-dark: rgba(0, 0, 0, 0.85);
+    /* COMMENT UNTUK GANTI GAMBAR BACKGROUND PIJAKAN LANTAI DETIL KARAKTER */
+    --bg-lantai-default: linear-gradient(180deg, #111116 0%, #252530 100%);
+}
+
+/* Reset Dasar Browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-putih-murni);
+    color: var(--hitam-solid);
+}
+
+/* Container Utama Halaman Daftar */
+.main-dimiliki-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================================== */
+/* STYLING SISI KIRI: SIDEBAR NAVIGASI KEMBAR */
+/* ========================================== */
+.sidebar-kiri {
+    width: 300px;
+    height: 100%;
+    background-color: var(--hitam-solid);
+    border-right: 4px solid var(--biru-muda-tech);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.btn-kembali-lobi {
+    width: 100%;
+    padding: 0.8rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--bg-putih-murni);
+    background-color: var(--merah-darah);
+    border: 2px solid var(--bg-putih-murni);
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.btn-kembali-lobi:hover {
+    background-color: var(--bg-putih-murni);
+    color: var(--hitam-solid);
+    box-shadow: 0 0 10px var(--bg-putih-murni);
+}
+
+.wrapper-menu-status {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.btn-status-nav {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--biru-muda-tech);
+    background: transparent;
+    border: 2px solid var(--biru-muda-tech);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-status-nav:hover {
+    background-color: var(--biru-muda-tech);
+    color: var(--hitam-solid);
+    box-shadow: 0 0 15px var(--biru-muda-tech);
+    transform: translateX(5px);
+}
+
+.spacer-bawah-sidebar {
+    height: 50px; /* Menjaga keseimbangan jarak tombol bawah */
+}
+
+/* ========================================== */
+/* STYLING SISI KANAN: AREA DAFTAR AKTIF     */
+/* ========================================== */
+.area-galeri-kanan {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+    padding: 2rem;
+    background-color: var(--bg-putih-murni);
+    scroll-behavior: smooth;
+}
+
+.judul-grup-kategori {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--hitam-solid);
+    border-left: 6px solid var(--merah-darah);
+    padding-left: 0.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.grid-wrapper-karakter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Kartu Karakter Dimiliki (Tanpa Transparan, Menampilkan yang Didapat Saja) */
+.kartu-karakter-master {
+    position: relative;
+    width: 220px;
+    height: 310px;
+    border: 3px solid var(--hitam-solid);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--hitam-solid);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.kartu-karakter-master:hover {
+    transform: translateY(-5px);
+    border-color: var(--biru-muda-tech);
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+}
+
+.box-gambar-2d {
+    width: 100%;
+    height: 100%;
+}
+
+.box-gambar-2d img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Label Nama Kecil Permanen di Bawah Kartu Gambar */
+.label-nama-bawah-kartu {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    color: var(--bg-putih-murni);
+    text-align: center;
+    padding: 0.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--biru-muda-tech);
+}
+
+/* Helper Class untuk Menyembunyikan Elemen Daftar */
+.hide-element {
+    display: none !important;
+}
+
+/* =================================================== */
+/* LAYOUT SCREEN BARU: PANEL DETAIL STAT DINAMIS FULL  */
+/* =================================================== */
+.layar-detail-full {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    display: flex;
+    z-index: 99;
+    background-color: var(--hitam-solid);
+}
+
+/* SISI KIRI: TEMPAT KARAKTER BERDIRI DI ATAS LANTAI */
+.detail-sisi-kiri {
+    width: 55vw;
+    height: 100%;
+    background: var(--bg-lantai-default);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    border-right: 3px solid var(--biru-muda-tech);
+}
+
+/* Wadah Karakter agar Menginjak Efek Lantai */
+.wrapper-karakter-berdiri {
+    width: auto;
+    height: 85vh;
+    display: flex;
+    align-items: flex-end;
+    z-index: 3;
+    position: relative;
+    bottom: 4vh; /* Menggeser posisi kaki menapak tepat di garis perspektif lantai */
+}
+
+.wrapper-karakter-berdiri img, .wrapper-karakter-berdiri video {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Struktur Efek Pijakan Bayangan Lantai RPG */
+.efek-lantai-pijakan {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 15vh;
+    background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+    border-top: 2px solid rgba(0, 191, 255, 0.2);
+    z-index: 2;
+    box-shadow: inset 0 10px 30px rgba(0,0,0,0.8);
+}
+
+/* SISI KANAN: PANEL DATA ANGKA STAT TERBARU & SKILL */
+.detail-sisi-kanan {
+    width: 45vw;
+    height: 100%;
+    background-color: var(--hitam-solid);
+    color: var(--bg-putih-murni);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 2px solid var(--abu-gelap);
+}
+
+.box-konten-stat {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.box-konten-stat h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--bg-putih-murni);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.garis-pembatas {
+    border: none;
+    height: 4px;
+    background-color: var(--biru-muda-tech);
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    width: 100px;
+}
+
+.list-angka-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+}
+
+.list-angka-stat p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #cccccc;
+}
+
+.list-angka-stat span {
+    color: var(--bg-putih-murni);
+    font-weight: 900;
+}
+
+.list-angka-stat .highlight-blue {
+    color: var(--biru-muda-tech);
+}
+
+/* Kontainer Daftar Kumpulan Kemampuan (Skill) */
+.wrapper-skill-aktif {
+    width: 100%;
+}
+
+.wrapper-skill-aktif h3 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    color: var(--biru-muda-tech);
+    text-transform: uppercase;
+}
+
+.grid-skill-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+/* Kotak Slot Info Skill */
+.skill-item-slot {
+    background-color: var(--abu-gelap);
+    border: 1px solid #444;
+    border-left: 4px solid var(--merah-darah);
+    padding: 0.8rem;
+    border-radius: 4px;
+}
+
+.skill-item-slot .nama-skill {
+    font-weight: bold;
+    color: var(--bg-putih-murni);
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+}
+
+.skill-item-slot .deskripsi-skill {
+    font-size: 0.75rem;
+    color: #aaa;
+    line-height: 1.3;
+}
+
+/* Tombol Keluar Layar Detail Terbawah */
+.btn-tutup-detail {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--bg-putih-murni);
+    background-color: var(--merah-darah);
+    border: 2px solid var(--bg-putih-murni);
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    margin-top: 2rem;
+}
+
+.btn-tutup-detail:hover {
+    background-color: var(--bg-putih-murni);
+    color: var(--hitam-solid);
+    box-shadow: 0 0 15px var(--bg-putih-murni);
+}
+
+/* Helper Class untuk Menyembunyikan Layar Detail Full */
+.hide-layar-detail {
+    display: none !important;
+}
+
+/* Responsivitas untuk Layar Gadget yang Lebih Kecil */
+@media (max-width: 1024px) {
+    .layar-detail-full { flex-direction: column; overflow-y: auto; }
+    .detail-sisi-kiri { width: 100vw; height: 50vh; border-right: none; border-bottom: 3px solid var(--biru-muda-tech); }
+    .detail-sisi-kanan { width: 100vw; height: auto; padding: 2rem; }
+    .wrapper-karakter-berdiri { height: 42vh; }
+}
+
+/* Styling Kotak Bar Level RPG Kustom */
+.container-level-bar-rpg {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.progress-bar-level-bg {
+    width: 100%;
+    max-width: 350px;
+    height: 12px;
+    background-color: var(--abu-gelap);
+    border: 1px solid #444;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 0.4rem;
+}
+
+.progress-bar-level-fill {
+    width: 0%; /* Diatur dinamis via JS berdasarkan persentase level */
+    height: 100%;
+    background: linear-gradient(90deg, var(--biru-muda-tech), #00ffff);
+    border-radius: 10px;
+    transition: width 0.4s ease-out;
+}

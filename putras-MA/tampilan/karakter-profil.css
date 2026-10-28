@@ -1,0 +1,329 @@
+/* ===================================================
+   CSS STYLING GALERI MASTER KARAKTER - putras-MA
+   =================================================== */
+
+/* Variabel Tema Warna Sesuai Request Mutlak Pemain */
+:root {
+    --bg-putih-murni: #ffffff;
+    --biru-muda-tech: #00bfff;
+    --merah-darah: #8b0000;
+    --hitam-solid: #000000;
+    --abu-transparan: rgba(255, 255, 255, 0.9);
+}
+
+/* Reset Dasar Browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-putih-murni);
+    color: var(--hitam-solid);
+}
+
+/* Container Pembagi Grid Kiri & Kanan */
+.main-profil-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================================== */
+/* STYLING SICI KIRI: SIDEBAR NAVIGASI FIXED  */
+/* ========================================== */
+.sidebar-kiri {
+    width: 300px;
+    height: 100%;
+    background-color: var(--hitam-solid);
+    border-right: 4px solid var(--biru-muda-tech);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+/* Tombol Kembali ke Lobi (Pojok Kiri Atas) */
+.btn-kembali-lobi {
+    width: 100%;
+    padding: 0.8rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--bg-putih-murni);
+    background-color: var(--merah-darah);
+    border: 2px solid var(--bg-putih-murni);
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.btn-kembali-lobi:hover {
+    background-color: var(--bg-putih-murni);
+    color: var(--hitam-solid);
+    box-shadow: 0 0 10px var(--bg-putih-murni);
+}
+
+/* Menu Barisan Vertikal Tombol Status Kategori */
+.wrapper-menu-status {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.btn-status-nav {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--biru-muda-tech);
+    background: transparent;
+    border: 2px solid var(--biru-muda-tech);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-status-nav:hover {
+    background-color: var(--biru-muda-tech);
+    color: var(--hitam-solid);
+    box-shadow: 0 0 15px var(--biru-muda-tech);
+    transform: translateX(5px);
+}
+
+/* Tombol Khusus Pojok Kiri Bawah */
+.btn-karakter-dimiliki {
+    width: 100%;
+    padding: 1rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--hitam-solid);
+    background-color: var(--bg-putih-murni);
+    border: 2px solid var(--biru-muda-tech);
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.btn-karakter-dimiliki:hover {
+    background-color: var(--biru-muda-tech);
+    color: var(--bg-putih-murni);
+    box-shadow: 0 0 12px var(--biru-muda-tech);
+}
+
+/* ========================================== */
+/* STYLING SISI KANAN: AREA GALERI UTAMA      */
+/* ========================================== */
+.area-galeri-kanan {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+    padding: 2rem;
+    background-color: var(--bg-putih-murni);
+    scroll-behavior: smooth;
+}
+
+/* Judul Banner Kelompok Status */
+.judul-grup-kategori {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--hitam-solid);
+    border-left: 6px solid var(--merah-darah);
+    padding-left: 0.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Barisan Grid Flex Karakter */
+.grid-wrapper-karakter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Kotak Wadah Kartu Karakter */
+.kartu-karakter-master {
+    position: relative;
+    width: 220px;
+    height: 310px;
+    border: 3px solid var(--hitam-solid);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--hitam-solid);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.kartu-karakter-master:hover {
+    transform: translateY(-5px);
+    border-color: var(--biru-muda-tech);
+}
+
+/* Wadah Gambar 2D Awal (Terang Utuh) */
+.box-gambar-2d {
+    width: 100%;
+    height: 100%;
+}
+
+.box-gambar-2d img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+/* Efek Transparan Saat Gambar Diklik Aktif */
+.efek-gambar-transparan {
+    opacity: 0.25;
+    filter: blur(2px);
+}
+
+/* Overlay Teks Stat Tepat Di Atas Gambar */
+.overlay-stat-dinamis {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: var(--bg-putih-murni);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.overlay-stat-dinamis p {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.overlay-stat-dinamis .txt-nama {
+    font-size: 1.2rem;
+    color: var(--biru-muda-tech);
+    border-bottom: 2px solid var(--biru-muda-tech);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.2rem;
+}
+
+/* Tombol Detail Latar Belakang Di Bawah Level */
+.btn-buka-lore {
+    margin-top: 1rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--bg-putih-murni);
+    background-color: var(--merah-darah);
+    border: 1px solid var(--bg-putih-murni);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.btn-buka-lore:hover {
+    background-color: var(--biru-muda-tech);
+    color: var(--hitam-solid);
+}
+
+/* Helper Class Untuk Menyembunyikan Overlay Data Stat */
+.hide-overlay-data {
+    display: none !important;
+}
+
+/* ========================================== */
+/* STYLING POP-UP JENDELA NOVEL LATER BELAKANG*/
+/* ========================================== */
+.overlay-pop-up-lore {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.wrapper-pop-up-lore {
+    width: 90%;
+    max-width: 600px;
+    background-color: var(--abu-transparan);
+    border: 4px solid var(--biru-muda-tech);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+/* Header Pop-up Dengan Tombol Close */
+.header-pop-up-lore {
+    background-color: var(--hitam-solid);
+    color: var(--biru-muda-tech);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--biru-muda-tech);
+}
+
+.header-pop-up-lore h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-close-lore {
+    background: var(--merah-darah);
+    color: var(--bg-putih-murni);
+    border: 1px solid var(--bg-putih-murni);
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.15s;
+}
+
+.btn-close-lore:hover {
+    background: var(--bg-putih-murni);
+    color: var(--hitam-solid);
+}
+
+/* Body Tempat Membaca Novel Narasi Cerita */
+.body-pop-up-lore {
+    padding: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+    color: var(--hitam-solid);
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Helper Class Untuk Menyembunyikan Pop-Up Lore */
+.hide-pop-up-lore {
+    display: none !important;
+}

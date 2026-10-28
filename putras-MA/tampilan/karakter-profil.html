@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Galeri Karakter - putras-MA</title>
+    <!-- Menghubungkan ke file CSS tema premium -->
+    <link rel="stylesheet" href="karakter-profil.css">
+</head>
+<body>
+
+    <!-- CONTAINER UTAMA HALAMAN PROFIL MASTER -->
+    <div class="main-profil-container">
+
+        <!-- ========================================== -->
+        <!-- SISI KIRI: SIDEBAR NAVIGASI FIXED          -->
+        <!-- ========================================== -->
+        <div class="sidebar-kiri">
+            <!-- Tombol Kembali Ke Lobi Utama (Pojok Kiri Atas) -->
+            <button class="btn-kembali-lobi" onclick="pindahHalamanProfil('menu-utama-game.html')">
+                ⬅ KEMBALI KE LOBI
+            </button>
+
+            <!-- Menu Barisan Kategori Status Karakter -->
+            <div class="wrapper-menu-status">
+                <button class="btn-status-nav" onclick="scrollToKategoriStatus('SPESIAL')">SPESIAL</button>
+                <button class="btn-status-nav" onclick="scrollToKategoriStatus('RAIU')">RAIU</button>
+                <button class="btn-status-nav" onclick="scrollToKategoriStatus('STARS')">STARS</button>
+                <button class="btn-status-nav" onclick="scrollToKategoriStatus('SKY')">SKY</button>
+            </div>
+
+            <!-- Tombol Pojok Kiri Bawah: Lihat Karakter yang Sudah Didapatkan -->
+            <button class="btn-karakter-dimiliki" onclick="pindahHalamanProfil('karakter/karakter-dimiliki.html')">
+                LIHAT KARAKTER YANG SUDAH DIDAPATKAN
+            </button>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SISI KANAN: AREA GALERI FOTO & SCROLLABLE  -->
+        <!-- ========================================== -->
+        <div class="area-galeri-kanan" id="area-galeri-kanan">
+            <!-- Konten Kartu Gambar dan Stat Master Akan Disuntik Otomatis Oleh JavaScript -->
+        </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- POP-UP PREMIUM JENDELA LATAR BELAKANG (LORE)-->
+    <!-- ========================================== -->
+    <div id="panel-pop-up-lore-global" class="overlay-pop-up-lore hide-pop-up-lore">
+        <div class="wrapper-pop-up-lore">
+            <div class="header-pop-up-lore">
+                <h3 id="txt-judul-lore-char">LORE / LATAR BELAKANG: -</h3>
+                <!-- Tombol Close (X) untuk Menutup Pop-up Lore -->
+                <button class="btn-close-lore" onclick="tutupPopUpLoreKarakter()">X</button>
+            </div>
+            <div class="body-pop-up-lore">
+                <p id="txt-isi-novel-lore">Memuat naskah novel cerita...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menghubungkan ke script database save dan script engine profil master -->
+    <script src="../system/save.js"></script>
+    <script src="../system/karakter-profil.js"></script>
+</body>
+</html>

@@ -56,11 +56,17 @@
         <!-- POJOK KANAN BAWAH: BARISAN TOMBOL RAPAT    -->
         <!-- ========================================== -->
         <div class="footer-navigasi-kanan">
+            <!-- Tombol Silver Fitur Lainnya (Berbaris dari kiri ke kanan menuju tombol utama) -->
             <button class="btn-fitur btn-silver" onclick="pindahKeHalaman('inventory.html')">INVENTORY</button>
             <button class="btn-fitur btn-silver" onclick="pindahKeHalaman('formasi.html')">FORMASI</button>
             <button class="btn-fitur btn-silver" onclick="pindahKeHalaman('gacha.html')">GACHA</button>
             <button class="btn-fitur btn-silver" onclick="pindahKeHalaman('toko.html')">TOKO</button>
-            <button class="btn-fitur btn-cerita-biru" onclick="pindahKeHalaman('cerita-utama.html')">CERITA</button>
+            
+            <!-- Blok Khusus Pojok Kanan Paling Ujung (Cerita + Karakter Melayang di Atasnya) -->
+            <div class="wrapper-kolom-cerita-karakter">
+                <button class="btn-fitur btn-silver btn-karakter-atas" onclick="pindahKeHalaman('karakter-profil.html')">KARAKTER</button>
+                <button class="btn-fitur btn-cerita-biru" onclick="pindahKeHalaman('cerita-utama.html')">CERITA</button>
+            </div>
         </div>
 
     </div>

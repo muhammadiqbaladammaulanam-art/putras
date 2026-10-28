@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pemain - putras-MA</title>
+    <link rel="stylesheet" href="profil.css">
+</head>
+<body>
+
+    <div class="profil-container">
+        
+        <!-- HEADER: Navigasi & Waktu Bermain -->
+        <div class="profil-header">
+            <button class="btn-kembali" onclick="window.location.href='menu-utama-game.html'">◀ KEMBALI KE LOBI</button>
+            <div class="tracker-waktu">
+                🕒 Bermain: <span id="display-playtime">00:00:00</span>
+            </div>
+        </div>
+
+        <!-- AREA UTAMA: Dua Kolom Visual -->
+        <div class="profil-main-grid">
+            
+            <!-- Kolom Kiri: Foto Profil Akun -->
+            <div class="card-profil-box">
+                <h3>FOTO PROFIL</h3>
+                <div class="avatar-wrapper-besar">
+                    <img id="foto-profil-besar" src="" alt="Avatar">
+                </div>
+                <label class="btn-ganti-foto" id="label-ganti-foto">
+                    <input type="file" id="upload-foto-profil" accept="image/*" onchange="prosesGantiFoto(event)">
+                    GANTI FOTO
+                </label>
+                <div class="info-cooldown" id="cooldown-foto-teks"></div>
+            </div>
+
+            <!-- Kolom Kanan: Pajangan Karakter Favorit -->
+            <div class="card-profil-box">
+                <h3>KARAKTER FAVORIT</h3>
+                <div class="pajangan-karakter-wrapper">
+                    <div id="wrapper-gambar-pajangan" class="placeholder-pajangan">Belum Ada Pajangan</div>
+                    <img id="gambar-pajangan-aktif" src="" alt="Karakter Favorit" class="hide-element">
+                </div>
+                <button class="btn-edit-data" onclick="bukaModalPajangan()">GANTI PAJANGAN</button>
+            </div>
+
+        </div>
+
+        <!-- AREA PROGRESS BAR: Level Akun & Progres Artup -->
+        <div class="card-profil-lebar">
+            <div class="level-info-header">
+                <span>LEVEL AKUN (ARTUP)</span>
+                <span id="txt-level-akun">Lv. 1</span>
+            </div>
+            <div class="bar-progress-container">
+                <div id="bar-level-fill" class="bar-fill"></div>
+            </div>
+            <div class="bar-angka-exp" id="txt-angka-exp">0 / 100 EXP</div>
+        </div>
+
+        <!-- AREA IDENTITAS: Sistem Pengeditan Mandiri -->
+        <div class="card-profil-lebar">
+            <h3>📝 IDENTITAS PEMAIN</h3>
+            
+            <div class="baris-identitas">
+                <div class="label-info">Nama Pemain: <strong id="val-nama">...</strong></div>
+                <button class="btn-aksi-edit" id="btn-edit-nama" onclick="mintaEditField('nama')">EDIT</button>
+            </div>
+            
+            <div class="baris-identitas">
+                <div class="label-info">Umur Pemain: <strong id="val-umur">...</strong> Tahun</div>
+                <button class="btn-aksi-edit" id="btn-edit-umur" onclick="mintaEditField('umur')">EDIT</button>
+            </div>
+            
+            <div class="baris-identitas">
+                <div class="label-info">Gender Pemain: <strong id="val-gender">...</strong></div>
+                <button class="btn-aksi-edit" id="btn-edit-gender" onclick="mintaEditField('gender')">EDIT</button>
+            </div>
+        </div>
+
+        <!-- AREA CATATAN: Memo Biodata -->
+        <div class="card-profil-lebar">
+            <h3>✍️ CATATAN KECIL</h3>
+            <p id="txt-catatan-pemain" class="catatan-teks">"Belum ada catatan."</p>
+            <button class="btn-edit-data" onclick="editCatatanMemo()">EDIT CATATAN</button>
+        </div>
+
+        <!-- FOOTER: Tombol Reset Berbahaya -->
+        <div class="profil-footer-danger">
+            <button class="btn-danger-reset" onclick="pemicuResetBerlapis()">🔥 RESET DATA GAME</button>
+        </div>
+
+    </div>
+
+    <!-- MODAL POPUP JENDELA PEMILIHAN KARAKTER UNTUK DIPAJANG -->
+    <div id="modal-pajangan-karakter" class="modal-overlay hide-element">
+        <div class="modal-konten">
+            <h3>Pilih Karakter Terpajang</h3>
+            <div id="daftar-opsi-karakter" class="grid-opsi-karakter">
+                <!-- Daftar karakter yang sudah dimiliki akan disuntikkan di sini lewat JS -->
+            </div>
+            <button class="btn-close-modal" onclick="tutupModalPajangan()">TUTUP</button>
+        </div>
+    </div>
+
+    <!-- Menghubungkan Script Sistem Global -->
+    <script src="../system/save.js"></script>
+    <script src="../system/karakter.js"></script>
+    <script src="../system/profil.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+:root {
+    --gold-star: #ffd700;
+    --sky-premium: #00bfff;
+    --danger-red: #ff3333;
+    --text-white: #ffffff;
+    --bg-dark-box: rgba(15, 15, 25, 0.9);
+    --border-color: #333344;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Segoe UI', Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+body {
+    width: 100vw; min-height: 100vh;
+    background: #080810 url('../asset/background-main-menu.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-white);
+    display: flex; justify-content: center;
+    overflow-x: hidden; padding: 2rem 0;
+}
+
+.profil-container {
+    width: 90%; max-width: 850px;
+    display: flex; flex-direction: column; gap: 1.5rem;
+}
+
+/* Header Area */
+.profil-header {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(0, 0, 0, 0.6); padding: 0.8rem 1.5rem; border-radius: 8px;
+}
+
+.btn-kembali {
+    background: transparent; border: 2px solid var(--sky-premium);
+    color: var(--sky-premium); padding: 0.5rem 1.2rem; font-weight: bold;
+    border-radius: 4px; cursor: pointer; transition: all 0.2s;
+}
+
+.btn-kembali:hover {
+    background: var(--sky-premium); color: #000;
+}
+
+.tracker-waktu {
+    font-weight: bold; letter-spacing: 1px; color: #ccc;
+}
+
+/* Grid Dua Kolom */
+.profil-main-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .profil-main-grid { grid-template-columns: 1fr; }
+}
+
+.card-profil-box {
+    background: var(--bg-dark-box); border: 1px solid var(--border-color);
+    border-radius: 12px; padding: 1.5rem; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
+
+.card-profil-box h3, .card-profil-lebar h3 {
+    color: var(--gold-star); font-size: 1.1rem; letter-spacing: 1px;
+    width: 100%; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;
+}
+
+/* Avatar & Pajangan */
+.avatar-wrapper-besar, .pajangan-karakter-wrapper {
+    width: 140px; height: 140px; border-radius: 50%;
+    border: 3px solid var(--gold-star); overflow: hidden; background: #000;
+}
+
+.pajangan-karakter-wrapper {
+    border-radius: 12px; border-color: var(--sky-premium);
+    display: flex; justify-content: center; align-items: center;
+}
+
+.avatar-wrapper-besar img, .pajangan-karakter-wrapper img {
+    width: 100%; height: 100%; object-fit: cover;
+}
+
+.placeholder-pajangan {
+    color: #555566; font-size: 0.9rem; padding: 1rem;
+}
+
+.btn-ganti-foto {
+    background: var(--gold-star); color: #000; font-weight: bold;
+    padding: 0.6rem 1.5rem; border-radius: 4px; cursor: pointer; transition: opacity 0.2s;
+}
+
+.btn-ganti-foto input[type="file"] { display: none; }
+
+.info-cooldown {
+    font-size: 0.8rem; color: #ff8888; height: 12px;
+}
+
+/* Card Lebar */
+.card-profil-lebar {
+    background: var(--bg-dark-box); border: 1px solid var(--border-color);
+    border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;
+}
+
+/* Progress Bar */
+.level-info-header {
+    display: flex; justify-content: space-between; font-weight: bold;
+}
+
+.bar-progress-container {
+    width: 100%; height: 16px; background: #111; border-radius: 20px;
+    border: 1px solid #333; overflow: hidden;
+}
+
+.bar-fill {
+    width: 0%; height: 100%;
+    background: linear-gradient(90deg, var(--gold-star), #ffe875);
+    border-radius: 20px; transition: width 0.3s ease;
+}
+
+.bar-angka-exp {
+    font-size: 0.85rem; text-align: right; color: #aaa;
+}
+
+/* Identitas Baris */
+.baris-identitas {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(255,255,255,0.03); padding: 0.6rem 1rem; border-radius: 6px;
+}
+
+.btn-aksi-edit, .btn-edit-data {
+    background: rgba(224, 224, 224, 0.1); color: var(--text-white);
+    border: 1px solid #555; padding: 0.4rem 1rem; border-radius: 4px;
+    cursor: pointer; font-weight: bold; transition: all 0.2s;
+}
+
+.btn-aksi-edit:hover, .btn-edit-data:hover {
+    background: var(--text-white); color: #000;
+}
+
+.btn-edit-data { width: 100%; text-transform: uppercase; }
+
+.catatan-teks {
+    font-style: italic; color: #ccc; padding: 0.5rem; background: rgba(0,0,0,0.2); border-radius: 6px;
+}
+
+/* Reset Button Area */
+.profil-footer-danger {
+    margin-top: 1rem; display: flex; justify-content: center;
+}
+
+.btn-danger-reset {
+    background: transparent; border: 2px solid var(--danger-red);
+    color: var(--danger-red); padding: 0.8rem 2.5rem; font-weight: bold;
+    border-radius: 6px; cursor: pointer; transition: all 0.2s; letter-spacing: 1px;
+}
+
+.btn-danger-reset:hover {
+    background: var(--danger-red); color: var(--text-white);
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.4);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center;
+    z-index: 1000;
+}
+
+.modal-konten {
+    background: #0f0f18; border: 2px solid var(--sky-premium);
+    width: 90%; max-width: 450px; padding: 2rem; border-radius: 12px;
+    display: flex; flex-direction: column; gap: 1.5rem; text-align: center;
+}
+
+.grid-opsi-karakter {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem;
+    max-height: 200px; overflow-y: auto; padding: 0.5rem;
+}
+
+.kartu-opsi-char {
+    border: 1px solid #444; border-radius: 6px; padding: 0.5rem;
+    cursor: pointer; background: rgba(255,255,255,0.02); transition: all 0.2s;
+}
+
+.kartu-opsi-char:hover {
+    border-color: var(--sky-premium); background: rgba(0, 191, 255, 0.1);
+}
+
+.btn-close-modal {
+    background: #333; color: white; border: none; padding: 0.6rem;
+    border-radius: 4px; cursor: pointer; font-weight: bold;
+}
+
+.hide-element { display: none !important; }
