@@ -2,7 +2,6 @@
    CSS STYLING GALERI MASTER KARAKTER - putras-MA
    =================================================== */
 
-/* Variabel Tema Warna Sesuai Request Mutlak Pemain */
 :root {
     --bg-putih-murni: #ffffff;
     --biru-muda-tech: #00bfff;
@@ -11,7 +10,6 @@
     --abu-transparan: rgba(255, 255, 255, 0.9);
 }
 
-/* Reset Dasar Browser */
 * {
     margin: 0;
     padding: 0;
@@ -28,16 +26,13 @@ body {
     color: var(--hitam-solid);
 }
 
-/* Container Pembagi Grid Kiri & Kanan */
 .main-profil-container {
     display: flex;
     width: 100%;
     height: 100%;
 }
 
-/* ========================================== */
-/* STYLING SICI KIRI: SIDEBAR NAVIGASI FIXED  */
-/* ========================================== */
+/* SIDEBAR KIRI FIXED */
 .sidebar-kiri {
     width: 300px;
     height: 100%;
@@ -51,7 +46,6 @@ body {
     z-index: 10;
 }
 
-/* Tombol Kembali ke Lobi (Pojok Kiri Atas) */
 .btn-kembali-lobi {
     width: 100%;
     padding: 0.8rem;
@@ -72,7 +66,6 @@ body {
     box-shadow: 0 0 10px var(--bg-putih-murni);
 }
 
-/* Menu Barisan Vertikal Tombol Status Kategori */
 .wrapper-menu-status {
     display: flex;
     flex-direction: column;
@@ -101,7 +94,6 @@ body {
     transform: translateX(5px);
 }
 
-/* Tombol Khusus Pojok Kiri Bawah */
 .btn-karakter-dimiliki {
     width: 100%;
     padding: 1rem;
@@ -123,9 +115,7 @@ body {
     box-shadow: 0 0 12px var(--biru-muda-tech);
 }
 
-/* ========================================== */
-/* STYLING SISI KANAN: AREA GALERI UTAMA      */
-/* ========================================== */
+/* AREA GALERI KANAN */
 .area-galeri-kanan {
     flex-grow: 1;
     height: 100%;
@@ -135,7 +125,6 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Judul Banner Kelompok Status */
 .judul-grup-kategori {
     font-size: 1.4rem;
     font-weight: 900;
@@ -148,7 +137,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Barisan Grid Flex Karakter */
 .grid-wrapper-karakter {
     display: flex;
     flex-wrap: wrap;
@@ -156,7 +144,6 @@ body {
     margin-bottom: 3rem;
 }
 
-/* Kotak Wadah Kartu Karakter */
 .kartu-karakter-master {
     position: relative;
     width: 220px;
@@ -175,7 +162,6 @@ body {
     border-color: var(--biru-muda-tech);
 }
 
-/* Wadah Gambar 2D Awal (Terang Utuh) */
 .box-gambar-2d {
     width: 100%;
     height: 100%;
@@ -188,13 +174,11 @@ body {
     transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
-/* Efek Transparan Saat Gambar Diklik Aktif */
 .efek-gambar-transparan {
     opacity: 0.25;
     filter: blur(2px);
 }
 
-/* Overlay Teks Stat Tepat Di Atas Gambar */
 .overlay-stat-dinamis {
     position: absolute;
     top: 0;
@@ -228,7 +212,6 @@ body {
     padding-bottom: 0.2rem;
 }
 
-/* Tombol Detail Latar Belakang Di Bawah Level */
 .btn-buka-lore {
     margin-top: 1rem;
     padding: 0.5rem 0.8rem;
@@ -247,14 +230,11 @@ body {
     color: var(--hitam-solid);
 }
 
-/* Helper Class Untuk Menyembunyikan Overlay Data Stat */
 .hide-overlay-data {
     display: none !important;
 }
 
-/* ========================================== */
-/* STYLING POP-UP JENDELA NOVEL LATER BELAKANG*/
-/* ========================================== */
+/* POP-UP JENDELA LORE */
 .overlay-pop-up-lore {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -275,7 +255,6 @@ body {
     overflow: hidden;
 }
 
-/* Header Pop-up Dengan Tombol Close */
 .header-pop-up-lore {
     background-color: var(--hitam-solid);
     color: var(--biru-muda-tech);
@@ -312,7 +291,6 @@ body {
     color: var(--hitam-solid);
 }
 
-/* Body Tempat Membaca Novel Narasi Cerita */
 .body-pop-up-lore {
     padding: 1.5rem;
     max-height: 400px;
@@ -323,7 +301,6 @@ body {
     text-align: justify;
 }
 
-/* Helper Class Untuk Menyembunyikan Pop-Up Lore */
 .hide-pop-up-lore {
     display: none !important;
 }
