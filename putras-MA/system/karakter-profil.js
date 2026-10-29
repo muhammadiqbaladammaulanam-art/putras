@@ -14,7 +14,7 @@ const masterKarakter = [
         hpBase: 108,
         attackBase: 18,
         defBase: 8,
-        gambar2d: "rifai.png", // Cukup tulis nama file gambarnya saja
+        gambar2d: "../asset/rifai.png", // Cukup tulis nama file gambarnya saja
         latarBelakangLore: "ini uji coba"
     },
     {
@@ -25,7 +25,7 @@ const masterKarakter = [
         hpBase: 81,
         attackBase: 18,
         defBase: 1,
-        gambar2d: "inra.png", // Cukup tulis nama file gambarnya saja
+        gambar2d: "../asset/inra.png", // Cukup tulis nama file gambarnya saja
         latarBelakangLore: "ini uji coba"
     },
     //di sini nambah karakter
